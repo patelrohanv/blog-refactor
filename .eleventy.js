@@ -14,8 +14,8 @@ module.exports = config => {
 
 
     /* Collections */
-    config.addCollection('recipes', collection => {
-        return [...collection.getFilteredByGlob('./src/recipes/*.md')];
+    config.addCollection('posts', collection => {
+        return [...collection.getFilteredByGlob('./src/posts/*.md')];
     });
 
     config.addCollection('tagList', collection => {
@@ -23,7 +23,7 @@ module.exports = config => {
         collection.getAll().forEach(item => {
           if (!item.data.tags) return;
           item.data.tags
-            .filter(tag => !['recipes'].includes(tag))
+            .filter(tag => !['posts'].includes(tag))
             .forEach(tag => tagsSet.add(tag));
         });
         return Array.from(tagsSet).sort((first, second) => {
@@ -71,8 +71,8 @@ module.exports = config => {
         let metadata = await Image(src.includes('http') ? src : `./src/${src}`, {
             widths: [600, 1500, 3000],
             formats: ['webp', 'jpeg'],
-            outputDir: './_site/img/recipes',
-            urlPath: '/img/recipes/'
+            outputDir: './_site/img/posts',
+            urlPath: '/img/posts/'
         });
     
         let imageAttributes = {
@@ -86,7 +86,7 @@ module.exports = config => {
         return Image.generateHTML(metadata, imageAttributes);
     }
 
-    config.addNunjucksAsyncShortcode('recipeimage', imageShortcode);
+    config.addNunjucksAsyncShortcode('postimage', imageShortcode);
     config.addShortcode('year', () => `${new Date().getFullYear()}`);
 
     return {

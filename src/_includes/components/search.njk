@@ -15,14 +15,14 @@
 
             if (searchInput.length < 3) { return };
     
-            searchResults.forEach(recipe => {
-                const matchTitle = recipe.title.toLowerCase().includes(searchInput.toLowerCase());
-                const matchIngredient = recipe.ingredients.find(ingredient => ingredient.toLowerCase().includes(searchInput.toLowerCase()));
-                const matchTag = recipe.tags.find(tag => tag.toLowerCase().includes(searchInput.toLowerCase()));
+            searchResults.forEach(post => {
+                const matchTitle = post.title.toLowerCase().includes(searchInput.toLowerCase());
+                const matchIngredient = post.ingredients.find(ingredient => ingredient.toLowerCase().includes(searchInput.toLowerCase()));
+                const matchTag = post.tags.find(tag => tag.toLowerCase().includes(searchInput.toLowerCase()));
         
                 if (!matchTitle && !matchIngredient && !matchTag) { return };
         
-                const match = {...recipe};
+                const match = {...post};
                 if (matchTitle) { match.matchTitle = matchTitle };
                 if (matchIngredient) { match.matchIngredient = matchIngredient };
                 if (matchTag) { match.matchTag = matchTag };

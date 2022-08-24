@@ -1,13 +1,13 @@
 backend:
   name: git-gateway
   branch: main
-media_folder: "src/img/recipes"
-public_folder: "/img/recipes"
+media_folder: "src/img/posts"
+public_folder: "/img/posts"
 
 collections:
-  - name: "recipes"
-    label: "Recipes"
-    folder: "src/recipes"
+  - name: "posts"
+    label: "Posts"
+    folder: "src/posts"
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
@@ -20,8 +20,8 @@ collections:
         field: {label: "Tag", name: "tag", widget: "string"}
       - {label: "Preparation time", name: "time", widget: "string", required: false}
       - {label: "Number of servings", name: "servings", widget: "number", required: false}
-      - {label: "Source of the recipe", name: "sourceLabel", widget: "string", required: false}
-      - {label: "URL of the source of the recipe", name: "sourceURL", widget: "string", required: false}
+      - {label: "Source of the post", name: "sourceLabel", widget: "string", required: false}
+      - {label: "URL of the source of the post", name: "sourceURL", widget: "string", required: false}
       - label: "Ingredients"
         name: "ingredients"
         widget: "list"
@@ -65,19 +65,19 @@ collections:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Add author to title", name: "authorInTitle", widget: "boolean"}
         - {label: "Meta title", name: "metaTitle", widget: "string", hint: "used for SEO"}
-        - {label: "Highlighted tag", name: "highlightedTag", widget: "string", hint: "This must correspond to one of your recipes' tag !"}
+        - {label: "Highlighted tag", name: "highlightedTag", widget: "string", hint: "This must correspond to one of your posts' tag !"}
         - {label: "Title of the highlighted tag section (label)", name: "highlightedTitle", widget: "string"}
-        - {label: "Link text to all recipes with the highlighted tag (label)", name: "highlightedLinkText", widget: "string"}
-    - name: "recipes"
-      label: "All recipes page"
-      file: "src/recipes.md"
+        - {label: "Link text to all posts with the highlighted tag (label)", name: "highlightedLinkText", widget: "string"}
+    - name: "posts"
+      label: "All posts page"
+      file: "src/posts.md"
       fields:
         - {label: "Title", name: "title", widget: "string"}
     - name: "tags"
       label: "Tags pages"
       file: "src/tag.md"
       fields:
-        - {label: "All recipes (label)", name: "allRecipesLabel", widget: "string"}
+        - {label: "All posts (label)", name: "allPostsLabel", widget: "string"}
     - name: "about"
       label: "About page"
       file: "src/about.md"

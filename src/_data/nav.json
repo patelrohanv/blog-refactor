@@ -5,8 +5,8 @@
             "url": "/"
         },
         {
-            "text": "All recipes",
-            "url": "/recipes/"
+            "text": "All posts",
+            "url": "/posts/"
         },
         {
             "text": "About",
